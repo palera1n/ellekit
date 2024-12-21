@@ -73,6 +73,9 @@ deb-ios-rootless: INSTALL_PREFIX = /var/jb
 deb-tvos-rootful: ARCHITECTURE = appletvos-arm64
 deb-tvos-rootful: INSTALL_PREFIX = 
 
+deb-tvos-rootless: ARCHITECTURE = appletvos-arm64-rootless
+deb-tvos-rootless: INSTALL_PREFIX = /var/jb
+
 deb-ios-rootful deb-ios-rootless: build-ios
 	@rm -rf work-$(ARCHITECTURE)
 	@mkdir -p $(STAGE_DIR)
@@ -121,7 +124,7 @@ deb-ios-rootful deb-ios-rootless: build-ios
 
 	@rm -rf work-$(ARCHITECTURE)
 
-deb-tvos-rootful: build-tvos
+deb-tvos-rootful deb-tvos-rootless: build-tvos
 	@rm -rf work-$(ARCHITECTURE)
 	@mkdir -p $(STAGE_DIR)
 
