@@ -18,10 +18,13 @@ endif
 
 ifneq ($(MAC),)
 COMMON_OPTIONS += -destination 'generic/platform=macOS'
+COMMON_OPTIONS += MACOSX_DEPLOYMENT_TARGET=11.0
 else ifneq ($(TV),)
 COMMON_OPTIONS += -destination 'generic/platform=tvOS'
+COMMON_OPTIONS += APPLETVOS_DEPLOYMENT_TARGET=14.0
 else
 COMMON_OPTIONS += -destination 'generic/platform=iOS'
+COMMON_OPTIONS += IPHONEOS_DEPLOYMENT_TARGET=14.0
 endif
 
 ifneq ($(MAC),)
